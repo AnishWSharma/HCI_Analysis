@@ -26,7 +26,7 @@ The measurement names were cleaned up by using the following substitutions -
     header.names<-gsub("Gyro|Jerk","_",header.names)
 ```
 
-Original study details can be found here - [Samsung Study](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+Original study details can be found here - [Samsung Human Activity Recognition Study](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
 ### Program (run_analysis.R)
 The source code contains detailed comments about individual steps.  From an approach standpoint, the following additional comments may be of help - 
