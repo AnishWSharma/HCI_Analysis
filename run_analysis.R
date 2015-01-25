@@ -32,7 +32,9 @@ if (!file.exists(local.data.folder)) {
 
 #get remote data and set home folder to where the data is unzipped
 dest.file<-paste(local.data.folder,"/UCHI_data.zip",sep="")
-download.file(file,destfile=dest.file,method="curl")
+if (!file.exists(dest.file)) {
+    download.file(file,destfile=dest.file,method="curl")
+}
 unzip(dest.file)
 home<-paste(current,"/UCI HAR Dataset",sep="")
 setwd(home)
@@ -111,10 +113,13 @@ x.data.filtered<-select(x.data.filtered,-Activity)
 
 #replace tBody with timeBody, fBody with frequencyBody, strip out illegal characters
 #also replace BodyBody with Body which is a typo in the original dataset
-#also, replace gyro and jerk :-)
-header.names<-gsub("(tBody)","timeBody",header.fields)
-header.names<-gsub("(fBody)","frequencyBody",header.names)
-header.names<-gsub("-|,|\\(|\\)","_",header.names)
+#replace gyro and jerk :-)
+header.names<-gsub("^t","time",header.fields)
+header.names<-gsub("^f","frequency",header.names)
+header.names<-gsub("Acc","Activity",header.names)
+header.names<-gsub("Mag","Magnitude",header.names)
+header.names<-gsub("\\(|\\)","",header.names)
+header.names<-gsub("-","_",header.names)
 header.names<-gsub("BodyBody","Body",header.names)
 header.names<-gsub("Gyro|Jerk","_",header.names)
 
