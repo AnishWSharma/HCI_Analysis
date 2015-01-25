@@ -19,9 +19,7 @@ for (i in required.packages) {
 #http://stackoverflow.com/questions/8175912/load-multiple-packages-at-once
 lapply(required.packages, require, character.only=T)
 
-#####Load data#############
 #remote data file location
-###########################
 file <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
 #The following idiom for checking first before creating a folder is from slide 3 of the following course notes
@@ -90,7 +88,6 @@ header.select.fields <- grep("mean|std|Subject|Activity",header.fields,value=F)
 
 #filter data based on header names selected
 x.data.filtered <- x.data[,header.select.fields,drop=F]
-str(x.data.filtered)
 
 ################
 #Step 3 - Uses descriptive activity names to name the activities in the data set
@@ -104,18 +101,17 @@ setnames(activity.labels,colnames(activity.labels),c("Activity","Activity.desc")
 #combine the activity  so we get labels instead of numeric codes
 #join from plyr package is better; merge reorders which is bad for subsequent steps
 x.data.filtered<-join(x.data.filtered,activity.labels)
-str(x.data.filtered)
 
 #get rid of numeric code column for activity since we now have corresponding labels.  Use drop option to preserve data.frame
 x.data.filtered<-select(x.data.filtered,-Activity)
-
-str(x.data.filtered)
 
 ################
 #Step 4 - Appropriately labels the data set with descriptive variable names. 
 ################
 
 #replace tBody with timeBody, fBody with frequencyBody, strip out illegal characters
+#also replace BodyBody with Body which is a typo in the original dataset
+#also, replace gyro and jerk :-)
 header.names<-gsub("(tBody)","timeBody",header.fields)
 header.names<-gsub("(fBody)","frequencyBody",header.names)
 header.names<-gsub("-|,|\\(|\\)","_",header.names)
@@ -124,8 +120,6 @@ header.names<-gsub("Gyro|Jerk","_",header.names)
 
 #set the names of the columns
 setnames(x.data.filtered,colnames(x.data.filtered),header.names[header.select.fields])
-
-str(x.data.filtered)
 
 ################
 #Step 5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
