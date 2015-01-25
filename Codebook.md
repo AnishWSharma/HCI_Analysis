@@ -5,19 +5,15 @@ This document contains details about the tidy data set produced by the accompany
 
 ## Data set details
 
-### Number of Observations  
-The tidy data file contains 14220 observations.  The breakout of the observations is shown as follows - 
-* Number of variables - 79, e.g. timeBodyAcc_mean___X, etc.
-* Number of activities - 6, e.g.  LAYING, STTTING, WALKING, et.
-* Number of subjects - 30, e.g. 1,2,3 etc.
+### Dataset structure   
+There are 4 cols.  Their name, count (where appropriate) and a brief description is shown below 
+* Subject - 30,  identifier of the human enrolled in the Samsung study
+* Activity - 6, Different type of activity subjects were performing e.g. LAYING, STTTING, WALKING, 
+* measurement - 79, Different type of measurements taken while subjects were performing an activity,e.g. timeBodyActivity_mean_X
+* mean - mean value of the measurement
 
-Total number of observations - 79 * 6 * 30 = 14220.
-
-### Number of Columns
-There are 4 cols.
-* Subject - Shows identifier of the human enrolled in the Samsung study
-* Activity
-* measurement
-* mean
+Overall, the tidy data file contains 14220 observations (79*6*30).  
 
 Original study details can be found here - [http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](Samsung Study)
+
+###Data cleaning
