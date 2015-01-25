@@ -26,12 +26,11 @@ The measurement names were cleaned up by using the following substitutions -
     header.names<-gsub("Gyro|Jerk","_",header.names)
 ```
 
-Original study details can be found here - [http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](Samsung Study)
+Original study details can be found here - [Samsung Study](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ### Program (run_analysis.R)
 The source code contains detailed comments about individual steps.  From an approach standpoint, the following additional comments may be of help - 
 
 1. The program does not assume source data mentioned in the assignment is available.   If it is available it is used, otherwise it downloads it from the source location.  This will require an active Internet connection.
-2. Once data is available, the approach was to build final dataset one step at a time.  The FAQ posted by David Hood was very helpful/invaluable as it crystallized the required steps in a simple way. In particular, this  [https://coursera-forum-screenshots.s3.amazonaws.com/ab/a2776024af11e4a69d5576f8bc8459/Slide2.png](picture) provides a pathway to construct the required program for processing the study dataset.
-3. 
-
+2. Once data is available, the approach was to build final dataset one step at a time.  [The project  FAQ](https://class.coursera.org/getdata-010/forum/thread?thread_id=49) posted by David Hood was very helpful/invaluable as it crystallized the required steps in a simple way. In particular, this  [picture](https://coursera-forum-screenshots.s3.amazonaws.com/ab/a2776024af11e4a69d5576f8bc8459/Slide2.png) provides an excellent overview of how to construct the required program for processing the study dataset.
+3. The attached program followed this picture closely.
