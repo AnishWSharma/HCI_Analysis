@@ -14,7 +14,7 @@ Briefly, 5 distinct steps are required
 * Appropriately labels the data set with descriptive variable names.
 * From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-The attached R program support all of the above requirements.
+The attached R program supports all of the above requirements.
 
 ##Assumptions
 Availability of Internet connection
