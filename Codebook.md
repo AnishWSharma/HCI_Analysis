@@ -15,7 +15,8 @@ There are 4 cols.  Their name, count (where appropriate) and a brief description
 Overall, the tidy data file contains 14220 observations (79*6*30).  
 
 The measurement names were cleaned up by using the following substituions
-    `header.names<-gsub("^t","time",header.fields)`
+ ```R
+    header.names<-gsub("^t","time",header.fields)
     header.names<-gsub("^f","frequency",header.names)
     header.names<-gsub("Acc","Activity",header.names)
     header.names<-gsub("Mag","Magnitude",header.names)
@@ -23,6 +24,7 @@ The measurement names were cleaned up by using the following substituions
     header.names<-gsub("-","_",header.names)
     header.names<-gsub("BodyBody","Body",header.names)
     header.names<-gsub("Gyro|Jerk","_",header.names)
+```
 
 
 
